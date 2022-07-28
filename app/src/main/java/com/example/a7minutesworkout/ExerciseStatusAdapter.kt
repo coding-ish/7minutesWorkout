@@ -1,5 +1,6 @@
 package com.example.a7minutesworkout
 
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -23,17 +24,25 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>):
         holder.tvItem.text = model.getId().toString()
 
         when{
+
             model.getIsSelected() ->{
                 holder.tvItem.background =
-                    ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_color_accent_background)
+                    ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_thin_color_accent_border)
                 holder.tvItem.setTextColor(Color.parseColor("#212121"))
             }
             model.getIsCompleted() ->{
+                holder.tvItem.background =
+                    ContextCompat.getDrawable(holder.itemView.context, R.drawable.item_circular_color_accent_background)
+                holder.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+            else -> {
+
+                holder.tvItem.background =
+                    ContextCompat.getDrawable(holder.itemView.context,R.drawable.item_circular_color_gray_background)
+
+                holder.tvItem.setTextColor(Color.parseColor("#212121"))
 
             }
-        }
-        else{
-
         }
     }
 
