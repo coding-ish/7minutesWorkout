@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Good job!\nYou finished the workout!\nTap Finish to return to the main menu"
+        android:text="Good job!\nYou finished the workout!\nTap Finish to return to the main menu..."
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="22sp"
@@ -59,7 +59,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:text="FINISH"
         />
