@@ -143,7 +143,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvExerciseName?.text = exerciseList!![currentExercisePosition].getName()
 
         if(binding?.tvExerciseName?.text == null){
-            Toast.makeText(this@ExerciseActivity, "Hey, meathead. There are no exercises left for me to say.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ExerciseActivity, "Hey, meathead. There are no exercises left for me to show.",Toast.LENGTH_SHORT).show()
         } else{
             speakOut(binding?.tvExerciseName?.text.toString())
         }
