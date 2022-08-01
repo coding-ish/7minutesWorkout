@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/lighterGrey"
     tools:context=".FinishScreen">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,9 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:theme="@style/ToolbarTheme"
-        android:background="@color/white"
+        android:background="@color/lighterGrey"
         app:titleTextColor="@color/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
+
         />
 
     <TextView
@@ -25,9 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/toolbarExercise"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="48sp"
         android:textStyle="bold"
         android:textColor="@color/colorAccent"
@@ -41,7 +39,29 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/item_circular_thin_color_accent_finish_border"
         android:gravity="center">
-
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:contentDescription="finish image"
+            android:src="@drawable/ic_check"
+            />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Good job!\nYou finished the workout!\nTap Finish to return to the main menu"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:text="FINISH"
+        />
 
 </LinearLayout>
