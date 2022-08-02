@@ -41,24 +41,23 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        setSupportActionBar(binding?.toolbarExercise)
+
         if(supportActionBar != null){
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
+
         binding?.toolbarExercise?.setNavigationOnClickListener{
+            Toast.makeText(this, "Button was pressed",Toast.LENGTH_LONG).show()
             customDialogForBackButton()
         }
+
+
+
 
         exerciseList = Constants.defaultExerciseList()
 
         tts = TextToSpeech(this, this)
-
-        setSupportActionBar(binding?.toolbarExercise)
-
-
-
-
-
-
 
 
         setUpRestView()
@@ -67,10 +66,21 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
+
         val dialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
+
         customDialog.setContentView(dialogBinding.root)
+
         customDialog.setCanceledOnTouchOutside(false)
 
+        dialogBinding.yes.setOnClickListener {
+
+        }
+
+        dialogBinding.no.setOnClickListener {
+
+        }
+        customDialog.show()
     }
 
     private fun setupExerciseStatusRecyclerView(){
