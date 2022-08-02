@@ -74,11 +74,12 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         customDialog.setCanceledOnTouchOutside(false)
 
         dialogBinding.yes.setOnClickListener {
-
+            this@ExerciseActivity.finish()
+            customDialog.dismiss()
         }
 
         dialogBinding.no.setOnClickListener {
-
+            customDialog.dismiss()
         }
         customDialog.show()
     }
