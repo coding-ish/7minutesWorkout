@@ -64,6 +64,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setupExerciseStatusRecyclerView()
     }
 
+    override fun onBackPressed() {
+        customDialogForBackButton()
+    }
+
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
 
