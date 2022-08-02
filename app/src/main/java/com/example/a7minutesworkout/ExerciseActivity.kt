@@ -48,7 +48,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         binding?.toolbarExercise?.setNavigationOnClickListener{
-            Toast.makeText(this, "Button was pressed",Toast.LENGTH_LONG).show()
+
             customDialogForBackButton()
         }
 
