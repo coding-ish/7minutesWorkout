@@ -12,5 +12,17 @@ class BMIActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBmiactivityBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        setSupportActionBar(binding?.toolbarBmiActivity)
+
+        if(supportActionBar != null){
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = "CALCULATE BMI"
+        }
+
+        binding?.toolbarBmiActivity?.setNavigationOnClickListener{
+
+            onBackPressed()
+        }
     }
 }

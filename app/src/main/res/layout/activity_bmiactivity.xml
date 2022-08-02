@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".BMIActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,5 +11,30 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/white"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMetricUnitWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:boxStrokeColor="@color/colorAccent"
+        app:hintTextColor="@color/colorAccent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMetricUnitHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:boxStrokeColor="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/tvBMIResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:text="Your BMI:\n25.21\nOverweight"/>
+    <TextView
+        android:id="@+id/tvMotivation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Oops! You really need to take care of yourself!"/>
 
 </RelativeLayout>
