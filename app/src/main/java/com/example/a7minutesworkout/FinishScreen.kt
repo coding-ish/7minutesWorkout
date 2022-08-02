@@ -15,8 +15,16 @@ class FinishScreen : AppCompatActivity() {
 
         setSupportActionBar(binding?.toolbarFinishActivity)
 
+        binding?.toolbarFinishActivity?.setNavigationOnClickListener{
+            onBackPressed()
+        }
+
         if(supportActionBar != null){
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
+
+        binding?.btnFinish?.setOnClickListener {
+            finish()
         }
     }
 }
