@@ -10,13 +10,52 @@
         android:id="@+id/toolbar_bmi_activity"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white"/>
+        android:background="@color/white" />
+
+    <RadioGroup
+        android:id="@+id/rgUnits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_bmi_activity"
+        android:layout_margin="10dp"
+        android:background="@drawable/drawable_radio_group_tab_background"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbMetricUnits"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="0.50"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="METRIC UNITS"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/drawable_units_tab_selector"
+            android:textColor="@drawable/drawable_units_tab_text_color_selector"/>
+
+        <RadioButton
+            android:id="@+id/rbUsUnits"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="0.50"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="US UNITS"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/drawable_units_tab_selector"
+            android:textColor="@drawable/drawable_units_tab_text_color_selector"
+            />
+
+
+    </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilMetricUnitWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_bmi_activity"
+        android:layout_below="@id/rgUnits"
         android:layout_margin="10dp"
         app:boxStrokeColor="@color/colorAccent"
         app:hintTextColor="@color/colorAccent"
