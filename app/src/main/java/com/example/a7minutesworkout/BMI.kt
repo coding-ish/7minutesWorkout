@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.a7minutesworkout.databinding.ActivityBmiactivityBinding
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
 
@@ -33,6 +35,8 @@ class BMIActivity : AppCompatActivity() {
                 val weightValue: Float = binding?.etMetricUnitWeight?.text.toString().toFloat()
 
                 val bmi = weightValue/(heightValue * heightValue)
+
+                displayBMIResult(bmi)
             }
         }
     }
@@ -43,14 +47,43 @@ class BMIActivity : AppCompatActivity() {
         val bmiDescription:String
 
         if(bmi.compareTo(15f) <= 0){
-            bmiLabel = "very severely underweight"
+            bmiLabel = "Very severely underweight"
             bmiDescription = "Oops! You need to eat more to be healthy!"
         }else if(bmi.compareTo(15f) > 0 && bmi.compareTo(16f)<=0){
-         bmiLabel = "severely underweight"
+         bmiLabel = "Severely underweight"
          bmiDescription = "Oops! You need to eat more to be healthy!"
         }
+        else if(bmi.compareTo(16f)>0 && bmi.compareTo(18.5f) <=0){
+            bmiLabel = "Underweight"
+            bmiDescription = "Oops! You need to eat more to be healthy!"
+        }
+        else if(bmi.compareTo(18.5f) > 0 && bmi.compareTo(25f) <=0){
+            bmiLabel = "Normal"
+            bmiDescription = "Congrats! You're in great shape!"
+        }
+        else if(bmi.compareTo(25f) > 0 && bmi.compareTo(30f) <=0){
+            bmiLabel = "Overweight"
+            bmiDescription = "Whoops! You need to work out more often!"
+        }
+        else if(bmi.compareTo(30f) > 0 && bmi.compareTo(35f) <=0) {
+            bmiLabel = "Moderately obese"
+            bmiDescription = "Whoops! You need to work out more often!"
+        }
+        else if(bmi.compareTo(35f) > 0 && bmi.compareTo(40f) <=0) {
+            bmiLabel = "Severely obese"
+            bmiDescription = "You need to act now! You are severely unhealthy!"
+        }
+        else{
+            bmiLabel = "Very severely obese"
+            bmiDescription = "You need to act now! You are severely unhealthy!"
+        }
+
+        var bmiValue = BigDecimal(bmi.toDouble()).setScale(2, RoundingMode.HALF_EVEN).toString()
+
         binding?.llDisplayBMIResult?.visibility = View.VISIBLE
-        binding?.tvBMIResult?.text = bmi.toString()
+        binding?.tvBMIResult?.text = bmiValue
+        binding?.tvBMILabel?.text = bmiLabel
+        binding?.tvMotivation?.text = bmiDescription
 
     }
 
