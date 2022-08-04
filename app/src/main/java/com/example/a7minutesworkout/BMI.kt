@@ -41,7 +41,7 @@ class BMIActivity : AppCompatActivity() {
         }
 
         binding?.btnCalculate?.setOnClickListener {
-            TODO("Check for us or metric system whether correct radio btn is selected")
+
             if(validateMetricUnits()){
                 val heightValue: Float = binding?.etMetricUnitHeight?.text.toString().toFloat()/100
 
@@ -62,6 +62,8 @@ class BMIActivity : AppCompatActivity() {
                 val totHeightInch: Float = (heightValueFeet*12) + heightValueInches
 
                 val bmi = weightValue/(totHeightInch * totHeightInch)
+
+                displayBMIResult(bmi)
             }
         }
     }
