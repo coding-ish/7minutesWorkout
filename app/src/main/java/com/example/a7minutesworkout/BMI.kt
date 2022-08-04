@@ -30,6 +30,7 @@ class BMIActivity : AppCompatActivity() {
 
         binding?.rbMetricUnits?.setOnClickListener {
             binding?.llMetricUnits?.visibility = View.VISIBLE
+            binding?.etMetricUnitWeight?.requestFocus()
             binding?.llUSUnitHeight?.visibility = View.INVISIBLE
             binding?.llUSUnitWeight?.visibility = View.INVISIBLE
         }
@@ -38,6 +39,7 @@ class BMIActivity : AppCompatActivity() {
             binding?.llMetricUnits?.visibility = View.INVISIBLE
             binding?.llUSUnitHeight?.visibility = View.VISIBLE
             binding?.llUSUnitWeight?.visibility = View.VISIBLE
+            binding?.etUSUnitWeight?.requestFocus()
         }
 
         binding?.btnCalculate?.setOnClickListener {
@@ -50,9 +52,8 @@ class BMIActivity : AppCompatActivity() {
                 val bmi = weightValue/(heightValue * heightValue)
 
                 displayBMIResult(bmi)
-            }
 
-            if(validateUSUnits()){
+            }else if(validateUSUnits()){
                 val heightValueFeet: Float = binding?.etUSUnitHeightFeet?.text.toString().toFloat()
 
                 val heightValueInches: Float = binding?.etUSUnitHeightInches?.text.toString().toFloat()
@@ -61,7 +62,7 @@ class BMIActivity : AppCompatActivity() {
 
                 val totHeightInch: Float = (heightValueFeet*12) + heightValueInches
 
-                val bmi = weightValue/(totHeightInch * totHeightInch)
+                val bmi = weightValue/(totHeightInch * totHeightInch) * 703
 
                 displayBMIResult(bmi)
             }
@@ -118,9 +119,9 @@ class BMIActivity : AppCompatActivity() {
 
         var isValid = true
 
-        if(binding?.etMetricUnitWeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isSelected() == false)){
+        if(binding?.etMetricUnitWeight?.text.toString().isEmpty() || ((binding?.rbMetricUnits?.isChecked == false))){
             isValid = false
-        } else if(binding?.etMetricUnitHeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isSelected() == false)){
+        } else if(binding?.etMetricUnitHeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isChecked == false)){
             isValid = false
         }
         return isValid
@@ -130,11 +131,11 @@ class BMIActivity : AppCompatActivity() {
 
         var isValid = true
 
-        if(binding?.etUSUnitWeight?.text.toString().isEmpty() || (binding?.rbUsUnits?.isSelected() == false)){
+        if(binding?.etUSUnitWeight?.text.toString().isEmpty() || (binding?.rbUsUnits?.isChecked == false)){
             isValid = false
         }
 
-        if(binding?.etUSUnitHeightFeet?.text.toString().isEmpty() || binding?.etUSUnitHeightInches?.text.toString().isEmpty() || (binding?.rbUsUnits?.isSelected() == false)){
+        if(binding?.etUSUnitHeightFeet?.text.toString().isEmpty() || binding?.etUSUnitHeightInches?.text.toString().isEmpty() || (binding?.rbUsUnits?.isChecked == false)){
             isValid = false
         }
 

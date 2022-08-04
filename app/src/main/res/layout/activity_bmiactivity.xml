@@ -31,6 +31,7 @@
             android:text="METRIC UNITS"
             android:button="@null"
             android:gravity="center"
+            android:checked="true"
             android:background="@drawable/drawable_units_tab_selector"
             android:textColor="@drawable/drawable_units_tab_text_color_selector"/>
 
@@ -178,7 +179,7 @@
             android:id="@+id/tilUSUnitHeightInches"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:layout_below="@id/llUSUnitWeight"
             android:layout_marginTop="10dp"
@@ -245,15 +246,18 @@
     </LinearLayout>
 
     <Button
-        android:layout_margin="10dp"
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/llDisplayBMIResult"
-        android:textSize="18sp"
-        android:text="CALCULATE"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/colorAccent"
-        android:textColor="@color/white"/>
+        android:text="CALCULATE"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
 
 
