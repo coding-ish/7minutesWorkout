@@ -28,7 +28,20 @@ class BMIActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        binding?.rbMetricUnits?.setOnClickListener {
+            binding?.llMetricUnits?.visibility = View.VISIBLE
+            binding?.llUSUnitHeight?.visibility = View.INVISIBLE
+            binding?.llUSUnitWeight?.visibility = View.INVISIBLE
+        }
+
+        binding?.rbUsUnits?.setOnClickListener {
+            binding?.llMetricUnits?.visibility = View.INVISIBLE
+            binding?.llUSUnitHeight?.visibility = View.VISIBLE
+            binding?.llUSUnitWeight?.visibility = View.VISIBLE
+        }
+
         binding?.btnCalculate?.setOnClickListener {
+            TODO("Check for us or metric system whether correct radio btn is selected")
             if(validateMetricUnits()){
                 val heightValue: Float = binding?.etMetricUnitHeight?.text.toString().toFloat()/100
 
@@ -37,6 +50,18 @@ class BMIActivity : AppCompatActivity() {
                 val bmi = weightValue/(heightValue * heightValue)
 
                 displayBMIResult(bmi)
+            }
+
+            if(validateUSUnits()){
+                val heightValueFeet: Float = binding?.etUSUnitHeightFeet?.text.toString().toFloat()
+
+                val heightValueInches: Float = binding?.etUSUnitHeightInches?.text.toString().toFloat()
+
+                val weightValue: Float = binding?.etUSUnitWeight?.text.toString().toFloat()
+
+                val totHeightInch: Float = (heightValueFeet*12) + heightValueInches
+
+                val bmi = weightValue/(totHeightInch * totHeightInch)
             }
         }
     }
@@ -91,9 +116,23 @@ class BMIActivity : AppCompatActivity() {
 
         var isValid = true
 
-        if(binding?.etMetricUnitWeight?.text.toString().isEmpty()){
+        if(binding?.etMetricUnitWeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isSelected() == false)){
             isValid = false
-        } else if(binding?.etMetricUnitHeight?.text.toString().isEmpty()){
+        } else if(binding?.etMetricUnitHeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isSelected() == false)){
+            isValid = false
+        }
+        return isValid
+    }
+
+    private fun validateUSUnits(): Boolean{
+
+        var isValid = true
+
+        if(binding?.etUSUnitWeight?.text.toString().isEmpty() || (binding?.rbUsUnits?.isSelected() == false)){
+            isValid = false
+        }
+
+        if(binding?.etUSUnitHeightFeet?.text.toString().isEmpty() || binding?.etUSUnitHeightInches?.text.toString().isEmpty() || (binding?.rbUsUnits?.isSelected() == false)){
             isValid = false
         }
 
