@@ -119,9 +119,9 @@ class BMIActivity : AppCompatActivity() {
 
         var isValid = true
 
-        if(binding?.etMetricUnitWeight?.text.toString().isEmpty() || ((binding?.rbMetricUnits?.isChecked == false))){
+        if(binding?.etMetricUnitWeight?.text.toString().isEmpty() || ((binding?.rbMetricUnits?.isChecked == false)) || !(binding?.etMetricUnitWeight?.text!!.contains("[0-9]".toRegex()))){
             isValid = false
-        } else if(binding?.etMetricUnitHeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isChecked == false)){
+        } else if(binding?.etMetricUnitHeight?.text.toString().isEmpty() || (binding?.rbMetricUnits?.isChecked == false) || !(binding?.etMetricUnitHeight?.text!!.contains("[0-9]".toRegex()))){
             isValid = false
         }
         return isValid
@@ -131,11 +131,12 @@ class BMIActivity : AppCompatActivity() {
 
         var isValid = true
 
-        if(binding?.etUSUnitWeight?.text.toString().isEmpty() || (binding?.rbUsUnits?.isChecked == false)){
+        if(binding?.etUSUnitWeight?.text.toString().isEmpty() || (binding?.rbUsUnits?.isChecked == false) || !(binding?.etUSUnitWeight?.text!!.contains("[0-9]".toRegex()))){
+
             isValid = false
         }
 
-        if(binding?.etUSUnitHeightFeet?.text.toString().isEmpty() || binding?.etUSUnitHeightInches?.text.toString().isEmpty() || (binding?.rbUsUnits?.isChecked == false)){
+        if(binding?.etUSUnitHeightFeet?.text.toString().isEmpty() || binding?.etUSUnitHeightInches?.text.toString().isEmpty() || (binding?.rbUsUnits?.isChecked == false) || !(binding?.etUSUnitHeightFeet?.text!!.contains("[0-9]".toRegex())) || !(binding?.etUSUnitHeightInches?.text!!.contains("[0-9]".toRegex()))){
             isValid = false
         }
 
