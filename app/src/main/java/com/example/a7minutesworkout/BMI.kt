@@ -29,16 +29,40 @@ class BMIActivity : AppCompatActivity() {
         }
 
         binding?.rbMetricUnits?.setOnClickListener {
+
+            //HIDE RESULTS
             binding?.llMetricUnits?.visibility = View.VISIBLE
-            binding?.etMetricUnitWeight?.requestFocus()
             binding?.llUSUnitHeight?.visibility = View.INVISIBLE
             binding?.llUSUnitWeight?.visibility = View.INVISIBLE
+            binding?.llDisplayBMIResult?.visibility = View.INVISIBLE
+
+            //RESET TEXT EVERYTIME USER CLICKS ON RADIO BTN
+            binding?.etMetricUnitWeight?.text?.clear()
+            binding?.etMetricUnitHeight?.text?.clear()
+            binding?.etUSUnitWeight?.text?.clear()
+            binding?.etUSUnitHeightFeet?.text?.clear()
+            binding?.etUSUnitHeightInches?.text?.clear()
+
+            //GAIN FOCUS ON WEIGHT
+            binding?.etMetricUnitWeight?.requestFocus()
         }
 
         binding?.rbUsUnits?.setOnClickListener {
+
+            //HIDE RESULTS
             binding?.llMetricUnits?.visibility = View.INVISIBLE
             binding?.llUSUnitHeight?.visibility = View.VISIBLE
             binding?.llUSUnitWeight?.visibility = View.VISIBLE
+            binding?.llDisplayBMIResult?.visibility = View.INVISIBLE
+
+            //RESET TEXT EVERYTIME USER CLICKS ON RADIO BTN
+            binding?.etMetricUnitWeight?.text?.clear()
+            binding?.etMetricUnitHeight?.text?.clear()
+            binding?.etUSUnitWeight?.text?.clear()
+            binding?.etUSUnitHeightFeet?.text?.clear()
+            binding?.etUSUnitHeightInches?.text?.clear()
+
+            //GAIN FOCUS ON WEIGHT
             binding?.etUSUnitWeight?.requestFocus()
         }
 
